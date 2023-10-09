@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roofing Service Form</title>
+    <style>
+        .custom-btn-height {
+            margin: 0 !important; /* Reset margin */
+            padding: .375rem .75rem; /* Adjust padding if necessary */
+            line-height: 1.5; /* Adjust line height if necessary */
+        }
+        .btn-group-toggle.d-flex {
+            align-items: center; /* Vertically center the buttons */
+        }
+    </style>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header text-center bg-primary text-white">
+                    <h1>Get Today's Best Price On A New Roof</h1>
+                    <h4 style="color:yellow;">[Don't Miss Out, Limited Spots Available!]</h4>
+                </div>
+                <div class="card-body">
+                    <form id="roofingForm" action="thankyou.html" method="post">
+                        <!-- Question 1 -->
+                        <div id="question1" class="quiz-question">
+                            <label><h3>What is going on with your roof that you need our help with?</h3></label>
+                            <div class="btn-group-toggle d-flex align-items-stretch" data-toggle="buttons">
+                                <label class="btn btn-outline-primary btn-block flex-fill mr-2 custom-btn-height">
+                                    <input type="radio" name="roofIssue" id="roofIssueLeaking" value="leaking" onclick="showQuestion(2)" required> 💦It's leaking
+                                </label>
+                                <label class="btn btn-outline-primary btn-block flex-fill custom-btn-height">
+                                    <input type="radio" name="roofIssue" id="roofIssueReplacement" value="replacement" onclick="showQuestion(2)" required> 🔨I need it replaced
+                                </label>
+                            </div>
+                            <button type="button" class="btn btn-primary btn-block mt-3" onclick="showQuestion(2)">Next</button>
+                        </div>
+
+                         <!-- Question 2 -->
+                         <div id="question2" class="quiz-question d-none">
+                            <label><h3>How soon are you looking to get your roof replaced?</h3></label>
+                            <div class="btn-group-toggle d-flex align-items-stretch" data-toggle="buttons">
+                                <label class="btn btn-outline-primary btn-block flex-fill mr-2 custom-btn-height">
+                                    <input type="radio" name="replacementTime" value="asap" onclick="showQuestion(3)" id="replacementTimeASAP" required> ⏱️ ASAP
+                                </label>
+                                <label class="btn btn-outline-primary btn-block flex-fill mr-2 custom-btn-height">
+                                    <input type="radio" name="replacementTime" value="1_week" onclick="showQuestion(3)" id="replacementTime1_week" required> 📆 Within 1 week
+                                </label>
+                                <label class="btn btn-outline-primary btn-block flex-fill custom-btn-height">
+                                    <input type="radio" name="replacementTime" value="3_weeks" onclick="showQuestion(3)" id="replacementTime3_weeks" required> 🗓️ Within 3 weeks
+                                </label>
+                            </div>
+                            <button type="button" class="btn btn-primary btn-block mt-3" onclick="showQuestion(3)">Next</button>
+                        </div>
+
+                        <!-- Question 3 -->
+                        <div id="question3" class="quiz-question d-none">
+                            <label><h3>What is your estimated credit score? (We use this to prequalify you for financing)</h3></label>
+                            <div class="btn-group-toggle d-flex align-items-stretch" data-toggle="buttons">
+                                <label class="btn btn-outline-primary btn-block flex-fill mr-2 custom-btn-height">
+                                    <input type="radio" name="creditScore" value="poor" id="creditScorePoor" onclick="showQuestion(4)" required> Poor (400-650)
+                                </label>
+                                <label class="btn btn-outline-primary btn-block flex-fill mr-2 custom-btn-height">
+                                    <input type="radio" name="creditScore" value="fair" id="creditScoreFair"  onclick="showQuestion(4)" required> Fair (650-700)
+                                </label>
+                                <label class="btn btn-outline-primary btn-block flex-fill mr-2 custom-btn-height">
+                                    <input type="radio" name="creditScore" value="good" id="creditScoreGood" onclick="showQuestion(4)" required> Good (700-750)
+                                </label>
+                                <label class="btn btn-outline-primary btn-block flex-fill custom-btn-height">
+                                    <input type="radio" name="creditScore" value="excellent" id="creditScoreExcellent" onclick="showQuestion(4)" required> Excellent (750+)
+                                </label>
+                            </div>
+                            <button type="button" class="btn btn-primary btn-block mt-3" onclick="showQuestion(4)">Next</button>
+                        </div>
+
+
+                        <!-- Question 4 -->
+                        <div id="question4" class="quiz-question d-none">
+                            <label><h3>What is your name?</h3></label>
+                            <input type="text" name="name" class="form-control mb-3" onkeypress="checkEnter(5)" required autofocus>
+                            <button type="button" class="btn btn-primary btn-block mt-3" onclick="showQuestion(5)">Next</button>
+                        </div>
+
+                        <!-- Question 5 -->
+                        <div id="question5" class="quiz-question d-none">
+                            <label><h3>What is your email?</h3></label>
+                            <input type="email" name="email" class="form-control mb-3" onkeypress="checkEnter(6)" required autofocus>
+                            <button type="button" class="btn btn-primary btn-block mt-3" onclick="showQuestion(6)">Next</button>
+                        </div>
+
+                        <!-- Question 6 -->
+                        <div id="question6" class="quiz-question d-none">
+                            <label><h3>What is your phone?</h3></label>
+                            <input type="tel" name="phone" class="form-control mb-3" onkeypress="checkEnter(7)" required autofocus>
+                            <button type="button" class="btn btn-primary btn-block mt-3" onclick="showQuestion(7)">Next</button>
+                        </div>
+
+                        <!-- Question 7 -->
+                        <div id="question7" class="quiz-question d-none">
+                            <label><h3>What is the address our contractors would be going to for your roofing project?</h3></label>
+                            <input type="text" id="autocomplete" name="address" class="form-control mb-3" onFocus="geolocate()" required autofocus>
+                            <button type="submit" class="btn btn-success btn-block">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function showQuestion(questionNumber) {
+        // Hide all questions
+        const questions = document.querySelectorAll('.quiz-question');
+        questions.forEach(question => {
+            question.classList.add('d-none');
+        });
+
+        // Show the desired question
+        document.getElementById('question' + questionNumber).classList.remove('d-none');
+
+        // Set focus on the first input field of the selected question
+        document.querySelector('#question' + questionNumber + ' input').focus();
+    }
+
+    function checkEnter(questionNumber) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            showQuestion(questionNumber);
+        }
+    }
+
+    let autocomplete;
+
+    function initAutocomplete() {
+        autocomplete = new google.maps.places.Autocomplete(
+            document.getElementById('autocomplete'), { types: ['geocode'] }
+        );
+        autocomplete.setFields(['address_component']);
+    }
+
+    function geolocate() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                const geolocation = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+                const circle = new google.maps.Circle({
+                    center: geolocation,
+                    radius: position.coords.accuracy
+                });
+                autocomplete.setBounds(circle.getBounds());
+            });
+        }
+    }
+</script>
+
+<!-- Bootstrap JS and jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initAutocomplete&libraries=places&v=weekly" defer></script>
+
+</body>
+
+</html>
