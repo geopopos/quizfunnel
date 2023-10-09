@@ -49,20 +49,25 @@
                             <button type="button" class="btn btn-primary btn-block mt-3" onclick="showQuestion(2)">Next</button>
                         </div>
 
-
-                         <!-- Question 2 -->
-                         <div id="question2" class="quiz-question d-none">
+                        <!-- Question 2 -->
+                        <div id="question2" class="quiz-question d-none">
                             <label><h3>How soon are you looking to get your roof replaced?</h3></label>
-                            <div class="btn-group-toggle d-flex align-items-stretch" data-toggle="buttons">
-                                <label class="btn btn-outline-primary btn-block flex-fill mr-2 custom-btn-height">
-                                    <input type="radio" name="replacementTime" value="asap" onclick="showQuestion(3)" id="replacementTimeASAP" required> ⏱️ ASAP
-                                </label>
-                                <label class="btn btn-outline-primary btn-block flex-fill mr-2 custom-btn-height">
-                                    <input type="radio" name="replacementTime" value="1_week" onclick="showQuestion(3)" id="replacementTime1_week" required> 📆 Within 1 week
-                                </label>
-                                <label class="btn btn-outline-primary btn-block flex-fill custom-btn-height">
-                                    <input type="radio" name="replacementTime" value="3_weeks" onclick="showQuestion(3)" id="replacementTime3_weeks" required> 🗓️ Within 3 weeks
-                                </label>
+                            <div class="row">
+                                <div class="col-md-4 mb-2">
+                                    <label class="btn btn-outline-primary btn-block custom-btn">
+                                        <input type="radio" name="replacementTime" value="asap" onclick="showQuestion(3)" id="replacementTimeASAP" required> ⏱️ ASAP
+                                    </label>
+                                </div>
+                                <div class="col-md-4 mb-2">
+                                    <label class="btn btn-outline-primary btn-block custom-btn">
+                                        <input type="radio" name="replacementTime" value="1_week" onclick="showQuestion(3)" id="replacementTime1_week" required> 📆 Within 1 week
+                                    </label>
+                                </div>
+                                <div class="col-md-4 mb-2">
+                                    <label class="btn btn-outline-primary btn-block custom-btn">
+                                        <input type="radio" name="replacementTime" value="3_weeks" onclick="showQuestion(3)" id="replacementTime3_weeks" required> 🗓️ Within 3 weeks
+                                    </label>
+                                </div>
                             </div>
                             <button type="button" class="btn btn-primary btn-block mt-3" onclick="showQuestion(3)">Next</button>
                         </div>
@@ -70,19 +75,27 @@
                         <!-- Question 3 -->
                         <div id="question3" class="quiz-question d-none">
                             <label><h3>What is your estimated credit score? (We use this to prequalify you for financing)</h3></label>
-                            <div class="btn-group-toggle d-flex align-items-stretch" data-toggle="buttons">
-                                <label class="btn btn-outline-primary btn-block flex-fill mr-2 custom-btn-height">
-                                    <input type="radio" name="creditScore" value="poor" id="creditScorePoor" onclick="showQuestion(4)" required> Poor (400-650)
-                                </label>
-                                <label class="btn btn-outline-primary btn-block flex-fill mr-2 custom-btn-height">
-                                    <input type="radio" name="creditScore" value="fair" id="creditScoreFair"  onclick="showQuestion(4)" required> Fair (650-700)
-                                </label>
-                                <label class="btn btn-outline-primary btn-block flex-fill mr-2 custom-btn-height">
-                                    <input type="radio" name="creditScore" value="good" id="creditScoreGood" onclick="showQuestion(4)" required> Good (700-750)
-                                </label>
-                                <label class="btn btn-outline-primary btn-block flex-fill custom-btn-height">
-                                    <input type="radio" name="creditScore" value="excellent" id="creditScoreExcellent" onclick="showQuestion(4)" required> Excellent (750+)
-                                </label>
+                            <div class="row">
+                                <div class="col-md-3 mb-2">
+                                    <label class="btn btn-outline-primary btn-block custom-btn">
+                                        <input type="radio" name="creditScore" value="poor" id="creditScorePoor" onclick="showQuestion(4)" required> Poor (400-650)
+                                    </label>
+                                </div>
+                                <div class="col-md-3 mb-2">
+                                    <label class="btn btn-outline-primary btn-block custom-btn">
+                                        <input type="radio" name="creditScore" value="fair" id="creditScoreFair"  onclick="showQuestion(4)" required> Fair (650-700)
+                                    </label>
+                                </div>
+                                <div class="col-md-3 mb-2">
+                                    <label class="btn btn-outline-primary btn-block custom-btn">
+                                        <input type="radio" name="creditScore" value="good" id="creditScoreGood" onclick="showQuestion(4)" required> Good (700-750)
+                                    </label>
+                                </div>
+                                <div class="col-md-3 mb-2">
+                                    <label class="btn btn-outline-primary btn-block custom-btn">
+                                        <input type="radio" name="creditScore" value="excellent" id="creditScoreExcellent" onclick="showQuestion(4)" required> Excellent (750+)
+                                    </label>
+                                </div>
                             </div>
                             <button type="button" class="btn btn-primary btn-block mt-3" onclick="showQuestion(4)">Next</button>
                         </div>
