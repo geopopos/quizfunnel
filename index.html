@@ -34,16 +34,21 @@
                         <!-- Question 1 -->
                         <div id="question1" class="quiz-question">
                             <label><h3>What is going on with your roof that you need our help with?</h3></label>
-                            <div class="btn-group-toggle d-flex align-items-stretch" data-toggle="buttons">
-                                <label class="btn btn-outline-primary btn-block flex-fill mr-2 custom-btn-height">
-                                    <input type="radio" name="roofIssue" id="roofIssueLeaking" value="leaking" onclick="showQuestion(2)" required> 💦It's leaking
-                                </label>
-                                <label class="btn btn-outline-primary btn-block flex-fill custom-btn-height">
-                                    <input type="radio" name="roofIssue" id="roofIssueReplacement" value="replacement" onclick="showQuestion(2)" required> 🔨I need it replaced
-                                </label>
+                            <div class="row">
+                                <div class="col-md-6 mb-2">
+                                    <label class="btn btn-outline-primary btn-block custom-btn">
+                                        <input type="radio" name="roofIssue" id="roofIssueLeaking" value="leaking" onclick="showQuestion(2)" required> 💦It's leaking
+                                    </label>
+                                </div>
+                                <div class="col-md-6 mb-2">
+                                    <label class="btn btn-outline-primary btn-block custom-btn">
+                                        <input type="radio" name="roofIssue" id="roofIssueReplacement" value="replacement" onclick="showQuestion(2)" required> 🔨I need it replaced
+                                    </label>
+                                </div>
                             </div>
                             <button type="button" class="btn btn-primary btn-block mt-3" onclick="showQuestion(2)">Next</button>
                         </div>
+
 
                          <!-- Question 2 -->
                          <div id="question2" class="quiz-question d-none">
