@@ -293,6 +293,19 @@
     function showQuestion(questionNumber) {
 
         // Validate the input before moving to the next question
+        if (questionNumber === 2 && !validateRadioButtons('roofIssue')) {
+            showError('Please select an option before proceeding.');
+            return;
+        }
+        if (questionNumber === 3 && !validateRadioButtons('replacementTime')) {
+            showError('Please select an option before proceeding.');
+            return;
+        }
+        if (questionNumber === 4 && !validateRadioButtons('creditScore')) {
+            showError('Please select an option before proceeding.');
+            return;
+        }
+        // Validate the input before moving to the next question
         if (questionNumber === 5 && !validateInput('name')) return;
         if (questionNumber === 6 && !validateInput('email')) return;
         if (questionNumber === 7 && !validateInput('phone')) return;
@@ -334,6 +347,16 @@
 
         // Set focus on the first input field of the selected question
         document.querySelector('#question' + questionNumber + ' input').focus();
+    }
+
+    function validateRadioButtons(groupName) {
+        const radioButtons = document.getElementsByName(groupName);
+        for (let i = 0; i < radioButtons.length; i++) {
+            if (radioButtons[i].checked) {
+                return true;
+            }
+        }
+        return false;
     }
 
     function validateInput(inputName) {
