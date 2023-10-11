@@ -33,6 +33,7 @@
                     <h4 style="color:yellow;">[Don't Miss Out, Limited Spots Available!]</h4>
                 </div>
                 <div class="card-body">
+                    <div id="errorDiv" class="alert alert-danger mt-3 d-none" role="alert"></div>
                     <form id="roofingForm" action="thankyou.html" method="post" netlify>
                         <!-- Question 1 -->
                         <div id="question1" class="quiz-question">
@@ -139,7 +140,28 @@
 </div>
 
 <script>
+    function showError(message) {
+        const errorDiv = document.getElementById('errorDiv');
+        errorDiv.innerHTML = message;
+        errorDiv.classList.remove('d-none');
+    }
+
+    function hideError(){
+        const errorDiv = document.getElementById('errorDiv');
+        errorDiv.innerHTML = "";
+        errorDiv.classList.add('d-none');
+    }
+
     function showQuestion(questionNumber) {
+
+        // Validate the input before moving to the next question
+        if (questionNumber === 5 && !validateInput('name')) return;
+        if (questionNumber === 6 && !validateInput('email')) return;
+        if (questionNumber === 7 && !validateInput('phone')) return;
+
+        // Hide the error message
+        hideError();
+
         // Hide all questions
         const questions = document.querySelectorAll('.quiz-question');
         questions.forEach(question => {
@@ -151,6 +173,43 @@
 
         // Set focus on the first input field of the selected question
         document.querySelector('#question' + questionNumber + ' input').focus();
+    }
+
+    function validateInput(inputName) {
+        const inputElement = document.getElementsByName(inputName)[0];
+        const inputValue = inputElement.value.trim();
+
+        if (!inputValue) {
+            showError('Please fill out this field before proceeding.');
+            inputElement.focus();
+            return false;
+        }
+
+        if (inputName === 'email' && !validateEmail(inputValue)) {
+            showError('Please enter a valid email address.');
+            inputElement.focus();
+            return false;
+        }
+
+        if (inputName === 'phone' && !validatePhoneNumber(inputValue)) {
+            showError('Please enter a valid phone number.');
+            inputElement.focus();
+            return false;
+        }
+
+        return true;
+    }
+
+    function validateEmail(email) {
+        // Regular expression for basic email validation
+        const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        return regex.test(email);
+    }
+
+    function validatePhoneNumber(phoneNumber) {
+        // Check if the phone number contains only numbers and has a length of 10
+        const regex = /^\d{10}$/;
+        return regex.test(phoneNumber);
     }
 
     function checkEnter(questionNumber) {
